@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cómo Meditar la Palabra y Andar en el Espíritu</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink:        #1A1208;
+  --ink-soft:   #3C2A14;
+  --stone:      #E8E0D0;
+  --stone-dark: #C8BCA8;
+  --parch:      #F5EDD8;
+  --parch-deep: #EAD9B8;
+  --gold:       #B8860B;
+  --gold-lt:    #D4A832;
+  --gold-pale:  #F0D080;
+  --red:        #8B1A1A;
+  --blue-ink:   #1B3A5C;
+  --shadow:     rgba(26,18,8,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lora', serif;
+  background: #0F0B06;
+  color: var(--ink);
+  line-height: 1.85;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-photo {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1600&q=80');
+  background-size: cover;
+  background-position: center 30%;
+  filter: brightness(0.22) sepia(0.7) saturate(0.8);
+}
+
+.hero-vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 0%, rgba(15,11,6,0.55) 70%, rgba(15,11,6,0.92) 100%);
+}
+
+.hero-content {
+  position: relative;
+  padding: 4rem 2rem;
+  max-width: 780px;
+}
+
+.chapter-mark {
+  display: inline-block;
+  font-family: 'IM Fell English', serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  border-top: 1px solid rgba(212,168,50,0.4);
+  border-bottom: 1px solid rgba(212,168,50,0.4);
+  padding: 0.45rem 1.5rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: rise 1.1s ease forwards 0.4s;
+}
+
+.hero-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 7vw, 5.5rem);
+  font-weight: 700;
+  color: var(--parch);
+  line-height: 1.08;
+  margin-bottom: 0.6rem;
+  opacity: 0;
+  animation: rise 1.1s ease forwards 0.7s;
+}
+
+.hero-title em {
+  font-style: italic;
+  color: var(--gold-lt);
+  display: block;
+}
+
+.hero-sub {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  color: rgba(245,237,216,0.65);
+  margin: 1.8rem auto 0;
+  max-width: 540px;
+  line-height: 1.65;
+  opacity: 0;
+  animation: rise 1.1s ease forwards 1s;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0;
+  animation: rise 1s ease forwards 1.6s;
+}
+
+.hero-scroll span {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(184,134,11,0.5);
+}
+
+.hero-scroll-bar {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: pulse-bar 2.2s ease infinite;
+}
+
+/* ── OPENING VERSE ── */
+.opening-verse {
+  background: var(--parch);
+  position: relative;
+  overflow: hidden;
+}
+
+.opening-verse::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1544764200-d834fd210a23?w=1200&q=60');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.06;
+}
+
+.opening-verse-inner {
+  position: relative;
+  max-width: 740px;
+  margin: 0 auto;
+  padding: 5.5rem 2.5rem;
+  text-align: center;
+}
+
+.drop-cap-wrap {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+.drop-cap {
+  float: left;
+  font-family: 'IM Fell English', serif;
+  font-size: 5.5rem;
+  line-height: 0.78;
+  color: var(--red);
+  margin: 0.08em 0.12em 0 0;
+  padding: 0;
+}
+
+.verse-ref {
+  display: block;
+  margin-top: 2rem;
+  font-family: 'IM Fell English', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ── SHARED LAYOUT ── */
+.page {
+  background: var(--parch);
+}
+
+.section {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.ruled-header {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.ruled-line { height: 1px; background: var(--stone-dark); }
+
+.ruled-center {
+  text-align: center;
+}
+
+.ruled-eyebrow {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.38em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.ruled-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 4vw, 2.6rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+}
+
+.ruled-title em { font-style: italic; color: var(--red); }
+
+/* ── PILLARS ── */
+.pillars-section {
+  background: var(--stone);
+  position: relative;
+}
+
+.pillars-section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(26,18,8,0.025) 0px, rgba(26,18,8,0.025) 1px,
+      transparent 1px, transparent 32px
+    );
+  pointer-events: none;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  background: var(--stone-dark);
+  border: 2px solid var(--stone-dark);
+  position: relative;
+  z-index: 1;
+}
+
+.pillar-card {
+  background: var(--stone);
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.35s;
+}
+
+.pillar-card:hover { background: var(--parch); }
+
+.pillar-glyph {
+  font-family: 'IM Fell English', serif;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: rgba(184,134,11,0.18);
+  position: absolute;
+  top: 1.5rem;
+  right: 1.8rem;
+  user-select: none;
+}
+
+.pillar-tag {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.6rem;
+}
+
+.pillar-hebrew {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.2rem;
+  line-height: 1.1;
+}
+
+.pillar-subtitle {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--red);
+  margin-bottom: 1.2rem;
+}
+
+.pillar-card p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.8;
+}
+
+.pillar-card p em { font-style: italic; color: var(--ink); }
+
+/* ── VERSES RIBBON ── */
+.verses-ribbon {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.verses-ribbon::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1504052434569-70ad5836ab65?w=1200&q=60');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.1;
+  filter: sepia(1);
+}
+
+.verses-ribbon-inner {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+}
+
+.verse-block {
+  border-top: 1px solid rgba(212,168,50,0.35);
+  padding-top: 1.5rem;
+}
+
+.verse-block blockquote {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(245,237,216,0.85);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.verse-block cite {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+}
+
+/* ── OBJECTS LIST ── */
+.objects-section {
+  background: var(--parch-deep);
+  position: relative;
+}
+
+.objects-section::before {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 45%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1470115636492-6d2b56f9146d?w=800&q=60');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.12;
+  filter: sepia(0.8);
+}
+
+.objects-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  align-items: start;
+}
+
+.objects-sticky {
+  position: sticky;
+  top: 3rem;
+}
+
+.objects-intro-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.objects-intro-title em { font-style: italic; color: var(--red); }
+
+.objects-intro p {
+  font-size: 1rem;
+  color: var(--ink-soft);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+
+.objects-intro blockquote {
+  border-left: 2px solid var(--gold);
+  padding: 0.8rem 1.2rem;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-soft);
+  background: rgba(184,134,11,0.06);
+  margin-top: 1.5rem;
+}
+
+.objects-list { counter-reset: obj; }
+
+.obj-row {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--stone-dark);
+  counter-increment: obj;
+}
+
+.obj-row:first-child { border-top: 1px solid var(--stone-dark); }
+
+.obj-n {
+  font-family: 'IM Fell English', serif;
+  font-size: 1.7rem;
+  color: var(--gold);
+  line-height: 1;
+  min-width: 2rem;
+  text-align: right;
+  padding-top: 0.1rem;
+}
+
+.obj-body h5 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+.obj-body p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+/* ── PREPARATION ── */
+.prep-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.prep-photo-strip {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 38%;
+  background-image: url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: sepia(0.4) brightness(0.75);
+}
+
+.prep-photo-overlay {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 38%;
+  background: linear-gradient(to right, transparent 60%, var(--parch) 100%);
+}
+
+.prep-content {
+  margin-left: 38%;
+  padding: 5rem 3.5rem 5rem 4rem;
+  max-width: 620px;
+}
+
+.prep-content .ruled-eyebrow { margin-bottom: 0.4rem; }
+
+.prep-content h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.2;
+  margin-bottom: 2.5rem;
+}
+
+.prep-list { list-style: none; }
+
+.prep-item {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.prep-icon {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: rgba(184,134,11,0.06);
+}
+
+.prep-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.prep-item h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.prep-item p {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  line-height: 1.75;
+}
+
+/* ── REPOSAR METHOD ── */
+.reposar-section {
+  background: var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.reposar-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1400&q=60');
+  background-size: cover;
+  background-position: center;
+  filter: sepia(0.8) brightness(0.2);
+}
+
+.reposar-inner {
+  position: relative;
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem;
+}
+
+.reposar-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.reposar-header .ruled-eyebrow { color: var(--gold-lt); }
+
+.reposar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 700;
+  color: var(--parch);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.reposar-subtitle {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(245,237,216,0.55);
+}
+
+.reposar-steps {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0;
+  border: 1px solid rgba(212,168,50,0.25);
+}
+
+.r-step {
+  padding: 2rem 1.4rem;
+  border-right: 1px solid rgba(212,168,50,0.15);
+  position: relative;
+  transition: background 0.3s;
+  cursor: default;
+}
+
+.r-step:last-child { border-right: none; }
+
+.r-step:hover { background: rgba(212,168,50,0.07); }
+
+.r-letter {
+  font-family: 'IM Fell English', serif;
+  font-size: 4rem;
+  color: rgba(212,168,50,0.3);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.r-label {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-lt);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.r-step h5 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--parch);
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+}
+
+.r-step p {
+  font-size: 0.78rem;
+  color: rgba(245,237,216,0.55);
+  line-height: 1.65;
+}
+
+/* ── CLOSING ── */
+.closing-section {
+  position: relative;
+  overflow: hidden;
+  background: var(--parch-deep);
+}
+
+.closing-img {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1400&q=70');
+  background-size: cover;
+  background-position: center bottom;
+  opacity: 0.08;
+  filter: sepia(0.6);
+}
+
+.closing-inner {
+  position: relative;
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.ornament {
+  display: block;
+  font-family: 'IM Fell English', serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  letter-spacing: 0.6em;
+  margin: 1.5rem auto;
+  opacity: 0.5;
+}
+
+.closing-inner h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+}
+
+.closing-inner blockquote {
+  font-family: 'IM Fell English', serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  margin: 2rem 0;
+}
+
+.closing-inner cite {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.three-truths {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 3.5rem;
+  text-align: left;
+}
+
+.truth {
+  padding: 1.5rem;
+  border-top: 2px solid var(--gold);
+  background: rgba(255,255,255,0.35);
+}
+
+.truth h5 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.truth p {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  line-height: 1.7;
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  padding: 3rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(184,134,11,0.2);
+}
+
+footer p {
+  font-family: 'IM Fell English', serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(184,134,11,0.35);
+  line-height: 2.2;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-bar {
+  0%, 100% { opacity: 0.25; transform: scaleY(0.9); }
+  50%       { opacity: 0.85; transform: scaleY(1.1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay { transition-delay: 0.15s; }
+.reveal-delay2 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 800px) {
+  .pillars-grid { grid-template-columns: 1fr; }
+  .verses-ribbon-inner { grid-template-columns: 1fr; gap: 2rem; }
+  .objects-two-col { grid-template-columns: 1fr; gap: 2rem; }
+  .objects-sticky { position: static; }
+  .prep-photo-strip, .prep-photo-overlay { display: none; }
+  .prep-content { margin-left: 0; padding: 4rem 1.5rem; }
+  .reposar-steps { grid-template-columns: 1fr; }
+  .r-step { border-right: none; border-bottom: 1px solid rgba(212,168,50,0.15); }
+  .three-truths { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-vignette"></div>
+  <div class="hero-content">
+    <span class="chapter-mark">Estudio Bíblico · Guía Práctica</span>
+    <h1 class="hero-title">
+      Cómo Meditar la Palabra
+      <em>y Andar en el Espíritu</em>
+    </h1>
+    <p class="hero-sub">
+      "Nunca se apartará de tu boca este libro de la ley, sino que de día y de noche meditarás en él… porque entonces harás prosperar tu camino, y todo te saldrá bien."
+    </p>
+  </div>
+  <div class="hero-scroll">
+    <span>Leer</span>
+    <div class="hero-scroll-bar"></div>
+  </div>
+</section>
+
+<!-- ═══════════════ OPENING VERSE ═══════════════ -->
+<div class="opening-verse page">
+  <div class="opening-verse-inner reveal">
+    <p class="drop-cap-wrap">
+      <span class="drop-cap">N</span>unca se apartará de tu boca este libro de la ley, sino que de día y de noche meditarás en él, para que guardes y hagas conforme a todo lo que en él está escrito; porque entonces harás prosperar tu camino, y todo te saldrá bien.
+    </p>
+    <span class="verse-ref">Josué 1:8</span>
+  </div>
+</div>
+
+<!-- ═══════════════ QUÉ ES ═══════════════ -->
+<div class="page">
+  <div class="section reveal">
+    <div class="ruled-header">
+      <div class="ruled-line"></div>
+      <div class="ruled-center">
+        <span class="ruled-eyebrow">Fundamento</span>
+        <h2 class="ruled-title">Qué es la<br><em>Meditación Bíblica</em></h2>
+      </div>
+      <div class="ruled-line"></div>
+    </div>
+    <p style="text-align: center; max-width: 620px; margin: 0 auto 0.8rem; font-size: 1.08rem; color: var(--ink-soft); font-style: italic;">
+      La meditación bíblica no consiste en vaciar la mente, sino en <strong>llenarla</strong>. Se sostiene sobre cuatro pilares del lenguaje bíblico original.
+    </p>
+  </div>
+</div>
+
+<!-- ═══════════════ PILLARS ═══════════════ -->
+<div class="pillars-section page reveal">
+  <div class="section" style="padding-top: 1rem; padding-bottom: 1rem;">
+    <div class="pillars-grid">
+
+      <div class="pillar-card">
+        <span class="pillar-glyph">ה</span>
+        <span class="pillar-tag">Pilar I · Vocalización</span>
+        <div class="pillar-hebrew">Hagah</div>
+        <div class="pillar-subtitle">Murmurar / Masticar</div>
+        <p>Murmurar la Palabra bajo tu aliento. Es <em>"masticar"</em> la Palabra como un león sobre su presa, dejando que el sonido active tu conexión física con ella. La voz crea resonancia en el espíritu.</p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-glyph">שׂ</span>
+        <span class="pillar-tag">Pilar II · Diálogo</span>
+        <div class="pillar-hebrew">Siach</div>
+        <div class="pillar-subtitle">Comulgar / Ponderar</div>
+        <p>Comulgar internamente. Es el arte de convertir el pensamiento en una <em>conversación íntima</em> donde permites que Dios escuche tu mundo interior. Ana oraba en silencio; el sacerdote pensó que estaba ebria.</p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-glyph">μ</span>
+        <span class="pillar-tag">Pilar III · Entrenamiento</span>
+        <div class="pillar-hebrew">Meletao</div>
+        <div class="pillar-subtitle">Practicar / Disciplinar</div>
+        <p>Practicar y entrenar en la Palabra. Es la disciplina del atleta que repite constantemente para que la verdad se convierta en una <em>"memoria muscular" espiritual.</em> — 1 Timoteo 4:15</p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-glyph">י</span>
+        <span class="pillar-tag">Pilar IV · Arquitectura</span>
+        <div class="pillar-hebrew">Yetser</div>
+        <div class="pillar-subtitle">Imaginar / Formar</div>
+        <p>Usar la Escritura para visualizar y <em>"esculpir"</em> tu cosmovisión según las promesas de Dios. La imaginación es una facultad legítima del espíritu humano — no es Nueva Era, es bíblico. — Isaías 26:3</p>
+      </div>
+
+      <div class="pillar-card">
+        <span class="pillar-glyph">רָ</span>
+        <span class="pillar-tag">Pilar V · Quietud</span>
+        <div class="pillar-hebrew">Rafa</div>
+        <div class="pillar-subtitle">Estar Quieto / Soltar</div>
+        <p>Volverse blando, dejar caer las armas, dejar de luchar contra Dios. Es el acto de rendición que abre la puerta a Su presencia. <em>"Estad quietos y conoced que yo soy Dios."</em> En quietud y reposo está vuestra fortaleza. — Salmo 46:10</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ VERSES RIBBON ═══════════════ -->
+<div class="verses-ribbon reveal">
+  <div class="verses-ribbon-inner">
+    <div class="verse-block">
+      <blockquote>"Medita en él día y noche, para que te cuides de hacer conforme a todo lo que en él está escrito. Porque entonces harás prosperar tu camino, y entonces tendrás buen éxito."</blockquote>
+      <cite>Josué 1:8</cite>
+    </div>
+    <div class="verse-block">
+      <blockquote>"Todo lo que es verdadero, todo lo honesto, todo lo justo, todo lo puro, todo lo amable, todo lo que es de buen nombre… en esto pensad."</blockquote>
+      <cite>Filipenses 4:8</cite>
+    </div>
+    <div class="verse-block">
+      <blockquote>"Porque cual es su pensamiento en su corazón, tal es él."</blockquote>
+      <cite>Proverbios 23:7</cite>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ EN QUÉ MEDITAR ═══════════════ -->
+<div class="objects-section page">
+  <div class="objects-two-col reveal">
+    <div class="objects-sticky objects-intro">
+      <span class="ruled-eyebrow" style="display: block; margin-bottom: 0.6rem;">Enfoque Bíblico</span>
+      <h2 class="objects-intro-title">Diez objetos<br><em>de meditación</em></h2>
+      <p>La mente necesita un ancla. La Biblia nos da diez objetos concretos sobre los cuales fijar nuestra atención y llenar el corazón con la realidad de Dios.</p>
+      <p>El espíritu va a donde la mente va. No puedes interceder sin meditación; no puedes profetizar sin haber contemplado primero.</p>
+      <blockquote>"En la quietud y en la confianza será vuestra fortaleza." — Isaías 30:15</blockquote>
+    </div>
+    <div class="objects-list">
+      <div class="obj-row">
+        <span class="obj-n">I</span>
+        <div class="obj-body"><h5>La Palabra de Dios</h5><p>La fuente primaria. La meditación es el proceso por el cual te sensibilizas a oírla.</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">II</span>
+        <div class="obj-body"><h5>Las obras de Dios</h5><p>Lo que Él ya ha hecho. Salmo 77:12: "Meditaré en todas tus obras."</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">III</span>
+        <div class="obj-body"><h5>Las maravillas de Dios</h5><p>Sus señales y milagros. Salmo 119:27.</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">IV</span>
+        <div class="obj-body"><h5>Los preceptos de Dios</h5><p>Sus instrucciones, no solo Sus promesas. Dios no hará lo que tú no meditaste para obedecer.</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">V</span>
+        <div class="obj-body"><h5>Los caminos de Dios</h5><p>Sus patrones divinos que se repiten a través de la Escritura y la historia.</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">VI</span>
+        <div class="obj-body"><h5>La belleza y majestad de Dios</h5><p>Contemplar quién es Él. Salmo 104:34.</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">VII</span>
+        <div class="obj-body"><h5>Palabras proféticas sobre tu vida</h5><p>Para pelear la buena batalla de la fe con las promesas que Dios te ha dado.</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">VIII</span>
+        <div class="obj-body"><h5>La visión que Dios te ha dado</h5><p>"Escribe la visión." — Habacuc 2:2. Ver lo que Dios quiere hacer.</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">IX</span>
+        <div class="obj-body"><h5>La persona de Cristo</h5><p>"Pongan la mira en las cosas de arriba." — Colosenses 3:1-2</p></div>
+      </div>
+      <div class="obj-row">
+        <span class="obj-n">X</span>
+        <div class="obj-body"><h5>El estado de tu propio corazón</h5><p>Salmo 4:4: "Comulgad con vuestro corazón en vuestra cama." Diagnóstico interior.</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CÓMO PREPARARSE ═══════════════ -->
+<div class="prep-section page reveal">
+  <div class="prep-photo-strip"></div>
+  <div class="prep-photo-overlay"></div>
+  <div class="prep-content">
+    <span class="ruled-eyebrow">Condiciones</span>
+    <h2>Cómo prepararse para meditar</h2>
+    <ul class="prep-list">
+      <li class="prep-item">
+        <div class="prep-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div>
+          <h4>Encuentra un lugar tranquilo</h4>
+          <p>Cierra la puerta y quédate a solas. El ambiente físico prepara el ambiente interior.</p>
+        </div>
+      </li>
+      <li class="prep-item">
+        <div class="prep-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div>
+          <h4>Establece tu postura</h4>
+          <p>Elige una posición que no necesites ajustar. El cuerpo quieto invita al espíritu quieto.</p>
+        </div>
+      </li>
+      <li class="prep-item">
+        <div class="prep-icon">
+          <svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div>
+          <h4>Elimina la prisa</h4>
+          <p>Date tiempo para relajarte y estar quieto. La prisa es el mayor enemigo de la meditación.</p>
+        </div>
+      </li>
+      <li class="prep-item">
+        <div class="prep-icon">
+          <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        </div>
+        <div>
+          <h4>Lee la Escritura primero</h4>
+          <p>Lee hasta poder escoger un versículo, luego piensa solo en ese versículo. Un versículo bien meditado supera cien leídos a prisa.</p>
+        </div>
+      </li>
+      <li class="prep-item">
+        <div class="prep-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        </div>
+        <div>
+          <h4>Ora oraciones cortas cuando divagues</h4>
+          <p><em>"Señor, cállame." "Te amo, Jesús." "Gracias, Señor."</em> Anclas cortas que devuelven el corazón al centro.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- ═══════════════ MÉTODO REPOSAR ═══════════════ -->
+<div class="reposar-section reveal">
+  <div class="reposar-bg"></div>
+  <div class="reposar-inner">
+    <div class="reposar-header">
+      <span class="ruled-eyebrow">Método Práctico</span>
+      <h2 class="reposar-title">El Método R.E.P.O.S.A.R.</h2>
+      <p class="reposar-subtitle">Siete pasos para moverse de la superficie hacia el Espíritu</p>
+    </div>
+    <div class="reposar-steps">
+      <div class="r-step">
+        <span class="r-letter">R</span>
+        <span class="r-label">Hagah</span>
+        <h5>Recita</h5>
+        <p>Lee un versículo lentamente en voz alta, de 3 a 5 veces. Vocaliza para activar todo tu ser.</p>
+      </div>
+      <div class="r-step">
+        <span class="r-letter">E</span>
+        <span class="r-label">Respirar</span>
+        <h5>Exhala</h5>
+        <p>Respira profundamente y libera la tensión. Invita al Espíritu Santo a guiar este tiempo.</p>
+      </div>
+      <div class="r-step">
+        <span class="r-letter">P</span>
+        <span class="r-label">Siach</span>
+        <h5>Pausa</h5>
+        <p>Susúrralo hacia adentro. Entra en diálogo interno con Dios; la voz interior que Él más escucha.</p>
+      </div>
+      <div class="r-step">
+        <span class="r-letter">O</span>
+        <span class="r-label">Yetser</span>
+        <h5>Observa</h5>
+        <p>Imagina. Usa la Escritura para visualizar y dar forma a tu fe. Deja que la imagen nazca.</p>
+      </div>
+      <div class="r-step">
+        <span class="r-letter">S</span>
+        <span class="r-label">Notación</span>
+        <h5>Siente</h5>
+        <p>Observa qué surge en tu corazón: miedo, paz, recuerdo. No lo juzgues. Déjalo fluir.</p>
+      </div>
+      <div class="r-step">
+        <span class="r-letter">A</span>
+        <span class="r-label">Meletao</span>
+        <h5>Atención</h5>
+        <p>Mantente en el versículo sin prisas. Entrena tu mente para quedarse quieta. Sé paciente.</p>
+      </div>
+      <div class="r-step">
+        <span class="r-letter">R</span>
+        <span class="r-label">Oración</span>
+        <h5>Rinde</h5>
+        <p>Convierte el versículo en oración. Entrégaselo de vuelta a Dios y descansa en Su presencia.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ CIERRE ═══════════════ -->
+<div class="closing-section page">
+  <div class="closing-img"></div>
+  <div class="closing-inner reveal">
+    <span class="ruled-eyebrow" style="display: block; margin-bottom: 1.5rem;">Siguiente Paso</span>
+    <span class="ornament">✦ ✦ ✦</span>
+    <h2>La señal de que has alcanzado profundidad es la paz</h2>
+    <blockquote>
+      "En la quietud y en la confianza será vuestra fortaleza."
+      <cite>Isaías 30:15</cite>
+    </blockquote>
+    <div class="three-truths reveal reveal-delay">
+      <div class="truth">
+        <h5>La meditación es cómo escuchas</h5>
+        <p>No es un monólogo. La oración se convierte en un diálogo real con Dios cuando la mente ha sido preparada por la meditación.</p>
+      </div>
+      <div class="truth">
+        <h5>El espíritu va donde va la mente</h5>
+        <p>No puedes interceder sin meditación. Hacia lo que piensas, tu espíritu fluye. La dirección interior determina el fruto exterior.</p>
+      </div>
+      <div class="truth">
+        <h5>Comienza hoy, un versículo</h5>
+        <p>No necesitas una hora. Toma un versículo y sigue el método R.E.P.O.S.A.R. La profundidad es el fruto de la fidelidad diaria.</p>
+      </div>
+    </div>
+    <span class="ornament" style="margin-top: 3rem;">✦ ✦ ✦</span>
+  </div>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer>
+  <p>Cómo Meditar la Palabra y Andar en el Espíritu</p>
+  <p>Josué 1:8 · Filipenses 4:8 · Isaías 30:15</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+reveals.forEach(el => io.observe(el));
+</script>
+</body>
+</html>
